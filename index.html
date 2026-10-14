@@ -661,6 +661,13 @@
         .panel, .house-rule { padding: 22px; }
       }
       @media (max-width: 560px) {
+        /* Nav tabs: two rows of two instead of a 3-and-1 wrap. */
+        nav.main-nav {
+          flex: 1 1 100%;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+        }
+        nav.main-nav a { text-align: center; }
         .wrap { padding: 0 16px; }
         .price-grid { gap: 18px; margin-top: 24px; }
         .panel { padding: 24px 18px; }
