@@ -166,8 +166,9 @@
       .logo-link {
         display: inline-flex;
         align-items: center;
+        justify-content: center;
         text-decoration: none;
-        flex: 0 0 auto;
+        flex: 1 1 100%;
         /* Touch: no double-tap zoom delay (keeps triple-tap reliable),
            no long-press callout or text selection (keeps hold reliable). */
         touch-action: manipulation;
@@ -177,7 +178,7 @@
         user-select: none;
       }
       .logo-bubble {
-        width: 202px;
+        width: min(520px, 100%);
         height: auto;
         transform: rotate(-2deg);
         filter: drop-shadow(3px 3px 0 var(--shadow));
@@ -653,7 +654,7 @@
         .about-img { position: static; max-width: 420px; margin: 0 auto; }
         .hero-img { max-width: 380px; }
         section { padding-top: 48px; }
-        .logo-bubble { width: 158px; }
+        .logo-bubble { width: min(520px, 100%); }
       }
       @media (max-width: 460px) {
         .steps { grid-template-columns: 1fr; }
