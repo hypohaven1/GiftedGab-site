@@ -253,6 +253,7 @@
         letter-spacing: 0.03em;
         line-height: 1.05;
         margin: 0 0 14px;
+        text-align: center;
       }
       h2 { font-size: clamp(2rem, 5.2vw, 2.9rem); }
       h3 { font-size: 1.5rem; }
@@ -527,6 +528,74 @@
         transform: rotate(-2deg);
       }
 
+      /* ---------- Thoughts ---------- */
+      .thoughts-intro { max-width: 62ch; margin: 0 auto; }
+      .fact-list { list-style: none; margin: 14px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 28px; text-align: left; }
+      .fact-list li { position: relative; padding-left: 22px; color: var(--ink-soft); }
+      .fact-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.62em;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--pink);
+        border: 2px solid var(--ink);
+      }
+      .fact-list li strong { color: var(--ink); }
+      .thoughts-note { margin-top: 22px; color: var(--ink-soft); font-weight: 700; }
+      .thoughts-cta { margin-top: 26px; }
+      .thoughts-cta p { color: var(--ink-soft); font-weight: 700; margin: 0 0 14px; }
+      .thought-feed {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 22px;
+        max-width: 760px;
+        margin: 30px auto 0;
+        text-align: center;
+      }
+      .thought-post {
+        background: var(--card);
+        border: 3px solid var(--ink);
+        border-radius: 18px;
+        box-shadow: 6px 6px 0 var(--shadow);
+        padding: 24px 26px;
+      }
+      .thought-post.featured { grid-column: 1 / -1; background: var(--pink-soft); text-align: center; }
+      .thought-post.featured p { max-width: 62ch; margin-left: auto; margin-right: auto; }
+      .thought-tag {
+        display: inline-block;
+        background: var(--pink-soft);
+        border: 2px solid var(--ink);
+        border-radius: 999px;
+        padding: 3px 12px 1px;
+        font-family: "Bangers", sans-serif;
+        letter-spacing: 0.06em;
+        font-size: 0.88rem;
+        color: var(--ink);
+        margin-bottom: 12px;
+      }
+      .thought-post.featured .thought-tag { background: var(--card); }
+      .thought-post h3 { font-size: 1.65rem; margin-bottom: 8px; }
+      .thought-post p { margin: 0 0 10px; color: var(--ink-soft); }
+      .thought-post p:last-child { margin-bottom: 0; }
+      .thought-post p strong { color: var(--ink); }
+      .look-list { list-style: none; margin: 4px 0 12px; padding: 0; }
+      .look-list li { position: relative; padding-left: 22px; margin-bottom: 6px; color: var(--ink-soft); }
+      .look-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.62em;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--pink);
+        border: 2px solid var(--ink);
+      }
+      .thought-post .look-list { display: inline-block; text-align: left; margin-left: auto; margin-right: auto; }
+
       /* ---------- About ---------- */
       .about-grid {
         display: grid;
@@ -653,7 +722,7 @@
 
       /* ---------- Responsive ---------- */
       @media (max-width: 820px) {
-        .hero-grid, .chat-grid, .about-grid, .price-grid, .booking-notes {
+        .hero-grid, .chat-grid, .about-grid, .price-grid, .booking-notes, .fact-list, .thought-feed {
           grid-template-columns: 1fr;
         }
         .steps { grid-template-columns: 1fr 1fr; }
@@ -684,6 +753,7 @@
           grid-template-columns: 1fr 1fr;
         }
         nav.main-nav a { text-align: center; }
+        nav.main-nav a:last-child { grid-column: 1 / -1; }
         .wrap { padding: 0 16px; }
         .price-grid { gap: 18px; margin-top: 24px; }
         .panel { padding: 24px 18px; }
@@ -720,6 +790,7 @@
           <a href="#doors">The Doors</a>
           <a href="#pricing">Pricing</a>
           <a href="#about">About Laysin</a>
+          <a href="#thoughts">My Thoughts Out Loud</a>
           <a href="#booking">Book</a>
         </nav>
       </div>
@@ -736,7 +807,7 @@
             <p class="lede">So pull up a chair. Pick a door below and let's have a visit.</p>
             <div class="how-works">
               <h2>How this works</h2>
-              <p>Choose the visit that fits, <em>Talk It Out</em> or an <em>Empath Visit</em>. Book your time.</p>
+              <p>Choose the visit that fits: <em>Talk It Out</em> or an <em>Empath Visit</em>. Book your time.</p>
             </div>
           </div>
           <div class="framed-img hero-img">
@@ -762,7 +833,7 @@
       <section id="doors">
         <div class="wrap">
           <h2>Two doors, your choice</h2>
-          <p class="lede">Here's how this works. You pick a door. Click one to see what's inside.</p>
+          <p class="lede">Here's how this works. You pick a door. Tap or click one to see what's inside.</p>
 
           <div class="doors-stage">
             <div class="framed-img">
@@ -784,21 +855,21 @@
               <p>Some things are hard to put into words. The <em>Empath Visit</em> is for those moments. I tune in to what I'm feeling from you, the stuff underneath what you're saying, and I tell you straight what I pick up. Then we talk it through, honest and open, and I'll give you my real take.</p>
               <p>Here's how it goes. You tell me what's going on and what you're hoping for from this visit. I share what I'm picking up from you. We figure out together what it means and where to go from here.</p>
               <p>No two visits go the same way. The flow follows the conversation.</p>
-              <p>My gift is a spiritual one. I tune in, I feel it, and we talk it through together.</p>
+              <p>No cards, no predictions. Just the gift, all the way up.</p>
               <div class="door-prices">
                 <div class="price-chip"><span>Voice, 20 min</span>$25</div>
                 <div class="price-chip"><span>Video, 20 min</span>$30</div>
               </div>
-              <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLScnm9sY8FtrSlbgxf_la0LBbIchjxuDFC_bVAucVDV42RBmYg/viewform" target="_blank" rel="noopener">Book an <em>Empath Visit</em></a>
+              <a class="btn" href="https://calendly.com/laysinrae" target="_blank" rel="noopener">Book an <em>Empath Visit</em></a>
             </div>
             <div id="door-talk" hidden>
               <h3><em>Talk It Out</em></h3>
-              <p>Step through this door when you just need to talk it out. A real conversation with someone who truly listens. She'll mostly listen, or share her thoughts if that's what you need. No energy work, no frills, just talk.</p>
+              <p>Step through this door when you just need to talk it out. A real conversation with someone who truly listens. I'll mostly listen, or share my thoughts if that's what you need. No energy work, no frills, just talk.</p>
               <div class="door-prices">
                 <div class="price-chip"><span>Voice, 20 min</span>$20</div>
                 <div class="price-chip"><span>Video, 20 min</span>$25</div>
               </div>
-              <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeBBDFtyCY9fokrLjW2Tx-Jj1ZPfNP4IECp0bU5NjlQb3kQyA/viewform" target="_blank" rel="noopener">Book a <em>Talk It Out</em></a>
+              <a class="btn" href="https://calendly.com/laysinrae" target="_blank" rel="noopener">Book a <em>Talk It Out</em></a>
             </div>
           </div>
         </div>
@@ -880,9 +951,108 @@
               <p>Proud Siberian cat mom here. Through our family business, we share the breed with allergy sufferers who thought a cat was never possible for them.</p>
               <p>A lifetime ago, I was a pre-med student, near completion, when a health scare made me rethink everything. I chose to put all of my energy into motherhood. The science brain stuck around, so on your call you get both: the empath who feels it and the mind that thinks it through.</p>
               <p>My friends all call me for advice and a good talk. Most of them start with "sorry, I know I always do this," haha. I just tell them to keep calling.</p>
-              <p>I'm not a therapist or a counselor, and I won't pretend to be. Someone in your corner, honest, open and kind!</p>
+              <p>I'm not a therapist or a counselor, and I won't pretend to be. Someone in your corner, honest, open, and kind!</p>
               <p>Bad day? I get it. Let's talk. Good day? Tell me everything. Don't know what kind of day it is? In a funk? Menopause running the show? Let's talk.</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- My Thoughts Out Loud -->
+      <section id="thoughts">
+        <div class="wrap">
+          <h2>My Thoughts Out Loud</h2>
+          <p class="lede thoughts-intro">This is my corner of the site, where I say my thoughts out loud. Little posts about how people treat you, about relationships, and about that spiritual connection you can feel with the people in your life.</p>
+          <p class="lede thoughts-intro">It works like a blog. New thoughts land at the top as they come to me, so check back now and then. No lectures. Just me, feeling my way through it, same as you.</p>
+
+          <div class="thought-feed">
+            <article class="thought-post featured">
+              <span class="thought-tag">How people treat you</span>
+              <h3>How people treat you tells you a lot</h3>
+              <p>Don&rsquo;t just listen to what people say about how they feel about you. Pay attention to how <em>you</em> feel after you have been around them.</p>
+              <p><strong>What that looks like:</strong></p>
+              <ul class="look-list">
+                <li>They listen when you talk, instead of just waiting for their turn.</li>
+                <li>They respect you when you say no.</li>
+                <li>They show up the way they said they would.</li>
+                <li>You feel calmer around them, not like you are always bracing for something.</li>
+              </ul>
+              <p><strong>You do not have to talk yourself out of what you already feel.</strong> If you feel smaller, drained, or on edge every time, that is information.</p>
+            </article>
+
+            <article class="thought-post">
+              <span class="thought-tag">Relationships</span>
+              <h3>Love should not feel like guessing</h3>
+              <p>A good relationship should not leave you guessing where you stand every single day.</p>
+              <p>What that looks like is effort going both ways. Hard things get talked through instead of punished with silence. And you feel safe saying &ldquo;that hurt&rdquo; without it turning into a fight about you saying it.</p>
+              <p><strong>Consistency is a love language.</strong> Pay attention to the pattern, not just the good day.</p>
+            </article>
+
+            <article class="thought-post">
+              <span class="thought-tag">Spiritual connection</span>
+              <h3>That quiet, connected feeling</h3>
+              <p>Sometimes you feel close to somebody without any big talk at all. You are just together and you feel settled. Understood. Not alone in it.</p>
+              <p>That is a lot of what spiritual connection is to me. Nothing fancy. Just feeling tuned in to a person and to the moment you are in with them.</p>
+              <p><strong>My gift is a spiritual one.</strong> I tune in, I feel it, and we talk it through together.</p>
+            </article>
+
+            <article class="thought-post">
+              <span class="thought-tag">How people treat you</span>
+              <h3>Kind when it is convenient is not the whole story</h3>
+              <p>Anybody can be sweet when they want something or when everything is going their way.</p>
+              <p>Real kindness shows up when it is not easy. When you disagree. When somebody is tired. When there is nothing in it for them. Watch how a person treats you on the ordinary days and on the hard ones.</p>
+              <p><strong>That is the version of them to believe.</strong></p>
+            </article>
+
+            <article class="thought-post">
+              <span class="thought-tag">Relationships</span>
+              <h3>You can love someone and still need a boundary</h3>
+              <p>A boundary is not you pushing somebody away. It is you saying what you need so you can feel okay in the relationship.</p>
+              <p>You are allowed to love somebody and still say, &ldquo;I can&rsquo;t do it that way.&rdquo; And if someone only likes you when you never say no, pay attention to that.</p>
+              <p><strong>Saying no with love is still love.</strong></p>
+            </article>
+
+            <article class="thought-post">
+              <span class="thought-tag">Spiritual connection</span>
+              <h3>Strong does not have to mean silent</h3>
+              <p>So many of us learned to hold everything in and handle it alone. We call that being strong and then we wonder why we feel so heavy.</p>
+              <p>Feeling it, saying it out loud, and letting somebody sit with you in it, that is connection too. It does not make you less strong. It makes you less alone.</p>
+              <p><strong>You were never meant to carry all of it by yourself.</strong></p>
+            </article>
+
+            <article class="thought-post">
+              <span class="thought-tag">What I believe</span>
+              <h3>What I believe, underneath all of it</h3>
+              <p><strong>My gift is a spiritual one.</strong> I tune in, I feel it, and we talk it through together.</p>
+              <p><strong>I feel it first.</strong> I have always picked up on the mood in a room and the weight somebody is carrying, even the stuff they have not said out loud yet. I talk about what I feel and I will tell you straight what I am picking up.</p>
+              <p><strong>Listening comes first.</strong> Sometimes you do not need fixing. You just need somebody who will really listen without rushing you or judging you. Being heard matters. That is where every visit here starts.</p>
+              <p><strong>Honest and kind.</strong> I will give you my real take when you want it. Not textbook talk, just honest and open, the way I talk to my own friends when they call me for advice. Honest does not have to mean harsh.</p>
+              <p><strong>You should not have to carry it alone.</strong> Bad days, good days, and the in-between days where you are not even sure what you are feeling. You do not have to sort it all out by yourself. Pull up a chair and let us talk it through.</p>
+              <p><strong>What this is and what it is not.</strong> I am not a therapist or a counselor and this is not a reading. No cards and no predictions. I do not connect you with anyone who has passed. I sit with you right here and we talk through what is in front of you.</p>
+              <p><strong>Needing to talk should not depend on money.</strong> My time is worth something and I will be honest about that. But if you truly cannot afford a visit, reach out anyway. You are worth something too. We will figure it out together.</p>
+            </article>
+
+            <article class="thought-post">
+              <span class="thought-tag">Fun facts</span>
+              <h3>A few fun facts about me</h3>
+              <ul class="fact-list">
+                <li><strong>Feeling deeply is my thing.</strong> It is not something I turn on for a visit, it is just how I have always been.</li>
+                <li><strong>Wife and mom of three.</strong> Twin preteens and a teenager under one roof, so yes, I know tired.</li>
+                <li><strong>Twice a surrogate.</strong> Holding space for other families in their biggest moments was a real honor.</li>
+                <li><strong>Science brain, empath heart.</strong> I was a pre-med student a lifetime ago, so I think things through and feel them through.</li>
+                <li><strong>Proud Siberian cat mom.</strong> Our family shares the breed with allergy sufferers who thought a cat was never possible.</li>
+                <li><strong>The friend everybody calls.</strong> My friends start with &ldquo;sorry, I know I always do this.&rdquo; I just tell them to keep calling.</li>
+                <li><strong>Empath work takes energy.</strong> That is why visits are one 20-minute session at a time, with room to book again.</li>
+                <li><strong>Menopause is part of my story right now.</strong> If it is running the show for you too, you are in good company here.</li>
+              </ul>
+            </article>
+          </div>
+
+          <p class="thoughts-note">More thoughts are coming. When something is on my mind, it lands here at the top.</p>
+
+          <div class="thoughts-cta">
+            <p>If one of these hit home and you want to talk it through, pull up a chair.</p>
+            <a class="btn" href="#booking">Book a visit</a>
           </div>
         </div>
       </section>
@@ -892,7 +1062,7 @@
         <div class="wrap">
           <h2>How booking works</h2>
           <p class="lede">Four easy steps between you and your visit.</p>
-          <a class="btn" href="#doors" style="margin: 6px 0 10px;">Book your visit</a>
+          <a class="btn" href="https://calendly.com/laysinrae" target="_blank" rel="noopener" style="margin: 6px 0 10px;">Book your visit</a>
 
           <div class="steps">
             <div class="step">
