@@ -149,9 +149,9 @@
 
       /* ---------- Header with speech-bubble logo ---------- */
       header.site-header {
-        position: sticky;
-        top: 0;
-        z-index: 50;
+        /* Not sticky: the header scrolls away with the rest of the page
+           so the full screen is available for reading content. */
+        position: static;
         background: var(--header-bg);
         border-bottom: 3px solid var(--ink);
       }
